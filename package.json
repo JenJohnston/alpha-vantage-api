@@ -1,0 +1,33 @@
+{
+  "name": "src",
+  "version": "1.0.0",
+  "description": "App that displays stock data from the Alpha Vantage API",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "dev": "parcel src/index.html  ",
+    "build": "parcel build src/index.html "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JerJohnston/src.git"
+  },
+  "keywords": [
+    "Alpha",
+    "Vantage",
+    "Stock"
+  ],
+  "author": "JerJohnston",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JerJohnston/src/issues"
+  },
+  "homepage": "https://github.com/JerJohnston/src#readme",
+  "dependencies": {
+    "alpha-vantage-cli": "^1.0.8",
+    "alphavantage": "^2.2.0",
+    "ejs": "^3.1.5",
+    "parcel-bundler": "^1.12.4",
+    "requirejs": "^2.3.6"
+  }
+}

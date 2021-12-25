@@ -1,0 +1,63 @@
+'F7VCYFDO89HO5ZRP'
+
+// Thanks to http://www.alphavantage.co/
+
+
+
+
+const url = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=MSFT&interval=1min&apikey=demo';
+
+
+	function getAlphaVantagedata() {
+
+		const apiKey = inpApiKey.value;
+
+		const symbol = inpSymbol.value;
+
+		const url = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=' + symbol + '&interval=1min&apikey=' + apiKey;
+
+		requestFile( url );
+
+	}
+
+
+	function requestFile( url ) {
+
+		const xhr = new XMLHttpRequest();
+		xhr.open( 'GET', url, true );
+		xhr.onerror = function( xhr ) { console.log( 'error:', xhr  ); };
+		xhr.onprogress = function( xhr ) { console.log( 'bytes loaded:', xhr.loaded  ); }; /// or something
+		xhr.onload = callback;
+		xhr.send( null );
+
+		function callback( xhr ) {
+
+			let response, json, lines;
+
+			response = xhr.target.response;
+			divContents.innerText = response;
+
+			json = JSON.parse( response );
+
+console.log( 'json', json );
+
+		}
+
+	}
+
+     function getStockData(){
+        const symbol = document.querySelector('#stocksymbol').value;
+        
+    
+        const stockData = fetch('https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=' + symbol + '&outputsize=compact&apikey=F7VCYFDO89HO5ZRP')
+        .then((response) => response.json())
+        .then((data) => {
+            dataObj = data;
+    
+            console.log(data['Time Series (Daily)'])
+            console.log(data['Time Series (Daily)']['2021-01-29']);
+            console.log(data['Meta Data']); 
+    
+        }); 
+    
+    }
